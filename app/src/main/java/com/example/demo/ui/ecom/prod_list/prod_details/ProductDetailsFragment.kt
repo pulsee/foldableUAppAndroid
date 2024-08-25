@@ -17,9 +17,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.slidingpanelayout.widget.SlidingPaneLayout
 import androidx.viewpager2.widget.ViewPager2
 import com.example.demo.R
 import com.example.demo.databinding.FragmentProductDetailsBinding
+import com.example.demo.ui.ecom.prod_list.ProductListDetailFragment
 import com.example.demo.ui.ecom.prod_list.ProductRepository
 import me.relex.circleindicator.CircleIndicator3
 
@@ -57,6 +59,7 @@ class ProductDetailsFragment : Fragment() {
 
         viewModel.loadProductDetails(args.productId)
     }
+
     private fun setupToolbar() {
         (activity as? AppCompatActivity)?.supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)

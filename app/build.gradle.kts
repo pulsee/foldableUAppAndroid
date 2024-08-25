@@ -41,7 +41,7 @@ android {
 }
 
 dependencies {
-    implementation ("androidx.paging:paging-runtime:3.1.1")
+    implementation (libs.androidx.paging.runtime)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.glide)
     implementation(libs.circleindicator)
+    implementation(libs.androidx.slidingpanelayout)
     annotationProcessor(libs.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
