@@ -100,8 +100,8 @@ class ProductDetailsFragment : Fragment() {
             ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                stopAutoScroll()
-                startAutoScroll()
+                //stopAutoScroll()
+                //startAutoScroll()
             }
         })
     }
@@ -138,7 +138,7 @@ class ProductDetailsFragment : Fragment() {
         viewModel.quantity.observe(viewLifecycleOwner) { quantity ->
             binding.quantityText.text = quantity.toString()
         }
-        startAutoScroll()
+        //startAutoScroll()
     }
     private fun startAutoScroll() {
         runnable = Runnable {
@@ -155,12 +155,12 @@ class ProductDetailsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        startAutoScroll()
+        //startAutoScroll()
     }
 
     override fun onPause() {
         super.onPause()
-        stopAutoScroll()
+        //stopAutoScroll()
     }
     override fun onDestroyView() {
         super.onDestroyView()

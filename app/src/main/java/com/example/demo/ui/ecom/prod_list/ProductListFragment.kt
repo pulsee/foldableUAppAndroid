@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -41,8 +43,8 @@ class ProductListFragment : Fragment() {
 
     private fun setupRecyclerView() {
         adapter = ProductPagingAdapter { productId ->
-            val action = ProductListFragmentDirections.actionProductListToProductDetails(productId)
-            findNavController().navigate(action)
+            // Use setFragmentResult to communicate with parent fragment
+            setFragmentResult("navigateToDetail", bundleOf("productId" to productId))
         }
 
         binding.productRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)

@@ -8,17 +8,18 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/product_list_container"
+        android:name="com.example.demo.ui.ecom.prod_list.ProductListFragment"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/product_detail_container"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="300dp"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:defaultNavHost="false"
-        app:navGraph="@navigation/product_list_nav_graph" />
-
-    <FrameLayout
-        android:id="@+id/product_detail_container"
-        android:layout_width="300dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
+        app:defaultNavHost="true"
+        android:layout_weight="1"
+        app:navGraph="@navigation/product_list_nav_graph"/>
 
 </androidx.slidingpanelayout.widget.SlidingPaneLayout>
