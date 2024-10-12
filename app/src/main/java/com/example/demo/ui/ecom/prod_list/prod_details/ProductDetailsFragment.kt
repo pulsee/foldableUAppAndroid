@@ -25,8 +25,7 @@ import me.relex.circleindicator.CircleIndicator3
 
 class ProductDetailsFragment : Fragment() {
 
-    private var _binding: FragmentProductDetailsBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentProductDetailsBinding
 
     private val args: ProductDetailsFragmentArgs by navArgs()
     private val viewModel: ProductDetailsViewModel by viewModels { ProductDetailsViewModelFactory(
@@ -41,7 +40,7 @@ class ProductDetailsFragment : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentProductDetailsBinding.inflate(inflater, container, false)
+        binding = FragmentProductDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -158,9 +157,5 @@ class ProductDetailsFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         stopAutoScroll()
-    }
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
