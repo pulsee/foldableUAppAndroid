@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import androidx.slidingpanelayout.widget.SlidingPaneLayout
 import com.example.demo.R
@@ -39,7 +40,19 @@ class ProductListDetailFragment : Fragment() {
         childFragmentManager.setFragmentResultListener("navigateToDetail", viewLifecycleOwner) { _, bundle ->
             val productId = bundle.getInt("productId")
             navController.navigate(R.id.productDetailsFragment,
-                bundleOf("productId" to productId))
+                bundleOf("productId" to productId),
+                NavOptions.Builder()
+                    // Pop all destinations off the back stack.
+                    .setPopUpTo(navController.graph.startDestinationId, true)
+                    .apply {
+                        // If it's already open and the detail pane is visible,
+                        // crossfade between the destinations.
+                        if (binding.slidingPaneLayout.isOpen) {
+                            setEnterAnim(R.animator.nav_default_enter_anim)
+                            setExitAnim(R.animator.nav_default_exit_anim)
+                        }
+                    }
+                    .build())
             slidingPaneLayout.open()
         }
 
@@ -48,7 +61,7 @@ class ProductListDetailFragment : Fragment() {
             override fun onPanelSlide(panel: View, slideOffset: Float) {}
             override fun onPanelOpened(panel: View) {}
             override fun onPanelClosed(panel: View) {
-                navController.popBackStack(R.id.productDetailsFragment, false)
+                navController.popBackStack(R.id.productDetailsFragment, true)
             }
         })
     }
