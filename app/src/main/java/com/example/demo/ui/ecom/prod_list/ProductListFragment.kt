@@ -69,10 +69,10 @@ class ProductListFragment : Fragment() {
                     refreshProgressBar.isVisible = loadStates.refresh is LoadState.Loading
 
                     // Header progress bar (top of list)
-                    headerProgressBar.isVisible = loadStates.source.prepend is LoadState.Loading
+                    //headerProgressBar.isVisible = loadStates.source.prepend is LoadState.Loading
 
                     // Footer progress bar (bottom of list)
-                    footerProgressBar.isVisible = loadStates.source.append is LoadState.Loading
+                    //footerProgressBar.isVisible = loadStates.source.append is LoadState.Loading
 
                     // RecyclerView visibility
                     productRecyclerView.isVisible = loadStates.refresh is LoadState.NotLoading

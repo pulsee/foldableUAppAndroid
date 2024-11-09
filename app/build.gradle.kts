@@ -41,7 +41,7 @@ android {
 }
 
 dependencies {
-    implementation (libs.androidx.paging.runtime)
+    implementation(libs.androidx.paging.runtime)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -53,6 +53,9 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.circleindicator)
     implementation(libs.androidx.slidingpanelayout)
+    implementation(libs.material.v140)
+    implementation(libs.androidx.window)
+    implementation(libs.androidx.window.core.android)
     annotationProcessor(libs.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
